@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style2.css">
+    <title>Week 2</title>
+</head>
+<body>
+        <h1>Week 2</h1>
+        <nav>
+            <ul id="navigation">
+            <li><a href="../index">Home</a></li>
+            <li><a href="../week01/">Lesson 1</a></li>
+            <li><a href="../week02/">Lesson 2</a></li>
+            </ul>
+        </nav>
+
+    <h1>Notes:</h1>
+        <h2>Chapter 2 programming basics </h2>
+    <p><b>Scope</b>: Using const and let to declare variables means they are block scoped, so their value only exists inside the block they are declared in. <br>
+        <b>Global Scope</b>: Any variable declared outside of a block is said to have global scope. This means it is accessible everywhere in the program. <br>
+        <b>Local Scope</b> In ES6, blocks can be used to create alocal scope. This means that any variables defined inside a block using the let or const will only be available inside that block and not be accessible outside of that block. This is known as having local scope, as the variable is only visible in the locality of the block. <br>
+        <b>Template Literals</b>: are a special types of string that were introduced in ES6. Template literals use the backtick character, `.<br>
+        This has the advantage of being able to use both types of quote mark within the string.
+    </p>
+
+
+        <h2>Chapter 3 Arrays:</h2>
+    <p>An array is an ordered list of values. To create an array literal, simply write a pair of
+        square brackets: <br>
+        "const myArray = [];"
+        We can create an array literal using square brackets that already contain some initial values, so there’s no need to add each value one by one. Here's an example: <br>
+        const avengers = ['Captain America', 'Iron Man', 'Thor', 'Hulk'];
+        The concat() method can be used to merge an array with one or more arrays: <br>
+        avengers.concat(['Hulk','Hawkeye', 'Black Widow']);
+        The join() method can be used to turn the array into a string that comprises all the items in the array, separated by commas: <br>
+        avengers.join(); <br>
+        Results: 'Captain America, Iron Man, Thor, Hulk, Hawkeye, Black Widow' <br>
+        Or you can choose a separator other than a comma by placing it inside the parentheses: <br>
+        avengers.join(' & '); <br>
+    'Captain America & Iron Man & Thor & Hulk & Hawkeye & Black Widow'
+    </p>
+        <h2>Chapter 4:</h2>
+    <p>To define a function literal we can use a function declaration: <br>
+        function hello(){console.log('Hello World!');}
+        <br>
+        Another way of defining a function literal is to create a function expression. This assigns  anonymous function a variable: <br>
+        const goodbye = function(){
+            console.log('Goodbye World!');
+        }; <br>
+        <b>Arrow Function</b>: These make declaring functions much more succinct by using less verbose syntax.<br>
+        Arrow functions have a number of advantages over other ways of declaring functions:<br>
+        They are much less verbose than normal function declarations.<br>
+        Single parameters don't need putting into parentheses.<br>
+        The body of the function doesn't need placing inside a block if it's only one line.<br>
+        The return keyword isn't required if the return statement is the only statement in the body of the function.<br>
+        They don't bind their own value of this to the function.<br>
+    </p>
+
+</body>
+</html>
