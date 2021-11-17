@@ -1,0 +1,20 @@
+body{
+    background-color: #5B2A86;
+}
+h2{
+    color: #A9DEF9;
+}
+.first{
+    color: #A5E6BA;
+    border-style: solid;
+    border-width: 3px;
+    border-color: #EDE7B1;
+    padding: 25px 50px 25px 50px;
+}
+.second{
+    color: #A5E6BA;
+    border-style: solid;
+    border-width: 3px;
+    border-color: #EDE7B1;
+    padding: 25px 50px 25px 50px;
+}
