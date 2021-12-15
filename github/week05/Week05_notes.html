@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <title>Week 5 Notes</title>
+        <style>
+            body{
+                background-color: darkgrey;
+            }
+            h3{
+                background-color:lavender;
+            }
+            ul.list{
+                background-color: blanchedalmond;
+                border-style: groove;
+            }
+        </style>
+    </head>
+    <body>
+        <h3>Chapter 10</h3>
+        <p>
+            The three system errors: <br>
+            <ul class="list">
+                <li>System error ― there’s a problem with the system or external devices with which the program is interacting.</li>
+                <li>Programmer error ― the program contains incorrect syntax or faulty logic; it could even be as simple as a typo.</li>
+                <li>User error ― the user has entered data incorrectly, which the program is unable to handle.</li>
+            </ul>
+            <b>Exception</b> is an error that produces a return value that can then be used by the program to deal with the error. <br>
+            <b>Stack</b> trace is a sequence of functions or method calls that lead to the point where the error occurred.<br>
+            <B>Warning</B> can occur if there’s an error in the code that isn't enough to cause the program to crash. <br>
+            <b>Linting</b> tools such asJS Lint, JS Hint, andES Lint can be used to test the quality of JavaScript code, beyond simply using strict mode. They are designed to highlight any sloppy programming practices or syntax errors, and will complain if certain style conventions are not followed, such as how code is indented. <br>
+            <b>Debugging</b>  is the process of finding out where bugs occur in the code and then dealing with them. <br>
+            <b>Error object</b> is the process of finding out where bugs occur in the code and then dealing with them. <br>
+            They are seven more error objects:
+            <ul class="Object list">
+                <li>EvalError is not used in the current ECMAScript specification and only retained for backwards compatibility. It was used to identify errors when using the global eval() function.
+                </li>
+                <li>
+                    Range Error is thrown when a number is outside an allowable range of values.
+                </li>
+                <li>
+                    Reference Error is thrown when a reference is made to an item that doesn’t exist. For example, calling a function that hasn't been defined.
+                </li>
+                <li>
+                    Syntax Error is thrown when there’s an error in the code’s syntax.
+                </li>
+                <li>
+                    Type Error is thrown when there’s an error in the type of value used; for example, a string is used when a number is expected.
+                </li>
+                <li>
+                    URI Error is thrown when there’s a problem encoding or decoding the URI.
+                </li>
+                <li>
+                    Internal Error is a non-standard error that is thrown when an error occurs in the JavaScript engine. A common cause of this too much recursion.
+                </li>
+            </ul>
+            <b>Throw</b> statement will allow for any problems in your code to be highlighted and dealt with, rather than lurk quietly in the background. It  can be applied to any JavaScript expression, causing the execution of the program to stop. <br>
+            Any code placed inside a try block will pass any error objects to a catch block when an exception occurs. Any code inside a finally block will run if an exception does or does not occur. <br>
+            <b>Test-driven development</b> is the practice of writing tests that fail, then writing the code that passes the test, then refactoring the code every time a new feature is implemented. <br>
+            <b>Jest framework</b> can be used to test your code.
+        </p>
+
+    </body>
+</html>

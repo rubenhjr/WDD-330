@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+        <title>Star Wars</title>
+
+        <script>
+            function validateEmail(){
+          var emailTextBox = document.getElementById("txtEmail");
+          var email = emailTextBox.value;
+          var emailRegEx = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  
+          emailTextBox.style.color = "white";
+  
+          if (emailRegEx.test(email)){
+              emailTextBox.style.backgroundColor = "green";
+              return true;
+          }
+          else{
+              emailTextBox.style.backgroundColor = "red";
+              return false;
+          }
+        }
+            function validateName(){
+                var nameBox = document.getElementById("first_name");
+                var name = nameBox.value;
+                var nameRegEx = /^[A-Z][a-z]/;
+
+                nameBox.style.backgroundColor = "white";
+
+                if (nameRegEx.test(name)){
+                    nameBox.style.backgroundColor = "green";
+                    return true;
+                }
+                else{
+                    nameBox.style.backgroundColor = "red";
+                    return false;
+                }
+            }
+            function validateLastName(){
+                var nameBox = document.getElementById("last_name");
+                var name = nameBox.value;
+                var nameRegEx = /^[A-Z][a-zA-Z]/;
+                nameBox.style.backgroundColor = "white";
+
+                if (nameRegEx.test(name)){
+                    nameBox.style.backgroundColor = "green";
+                    return true;
+                }
+                else{
+                    nameBox.style.backgroundColor = "red";
+                    return false;
+                }
+            }
+            function validateAddress(){
+                var addrBox = document.getElementById("street_address");
+                var address = addrBox.value;
+                var addressRegEx = /^[0-9]{1,5} [A-Za-z]/;
+                addrBox.style.backgroundColor = "white";
+
+                if (addressRegEx.test(address)){
+                    addrBox.style.backgroundColor = "green";
+                    return true;
+                }
+                else{
+                    addrBox.style.backgroundColor = "red";
+                    return false;
+                }
+            }
+            function validateCity(){
+                var cityBox = document.getElementById("city");
+                var cit = cityBox.value;
+                var cityRegEx = /^[A-Z][a-zA-Z]/;
+                cityBox.style.backgroundColor = "white";
+
+                if (cityRegEx.test(cit)){
+                    cityBox.style.backgroundColor = "green";
+                    return true;
+                }
+                else{
+                    cityBox.style.backgroundColor = "red";
+                    return false;
+                }
+            }
+            function validateState(){
+                var stateBox = document.getElementById("state");
+                var st = stateBox.value;
+                var stateRegEx = /^[A-Z]{2}/;
+                stateBox.style.backgroundColor = "white";
+
+                if (stateRegEx.test(st)){
+                    stateBox.style.backgroundColor = "green";
+                    return true;
+                }
+                else{
+                    stateBox.style.backgroundColor = "red";
+                    return false;
+                }
+            }
+            function validateZip(){
+                var zipBox = document.getElementById("zipcode");
+                var zip = zipBox.value;
+                var zipRegEx = /^[0-9]{5}/;
+                zipBox.style.backgroundColor = "white";
+
+                if (zipRegEx.test(zip)){
+                    zipBox.style.backgroundColor = "green";
+                    return true;
+                }
+                else{
+                    zipBox.style.backgroundColor = "red";
+                    return false;
+                }
+            }
+            function validatePhone(){
+            var phoneNumber = document.getElementById("phone");
+            var phone = phoneNumber.value;
+            var phoneRegEx = /^[0-9]{3}-[0-9]{3}-[0-9]{4}/;
+            phoneNumber.style.backgroundColor = "white";
+
+            if (phoneRegEx.test(phone)){
+                phoneNumber.style.backgroundColor = "green";
+                return true;
+            }
+            else {
+                phoneNumber.style.backgroundColor = "red";
+                false
+            }
+        }
+            function validateCardNumber(){
+                var cardNumber = document.getElementById("credit-card");
+                var card = cardNumber.value;
+                var cardRegEx = /^[0-9]{4} [0-9]{4} [0-9]{4} [0-9]{4}/;
+                cardNumber.style.color = "white";
+
+                if (cardRegEx.test(card)) {
+                    cardNumber.style.backgroundColor = "green";
+                    return true;
+                }
+                else {
+                    cardNumber.style.backgroundColor = "red";
+                    return false;
+                }
+            }
+            function validateExp(){
+                var cardExp = document.getElementById("exp-date");
+                var exp = cardExp.value;
+                var expRegEx = /^(0[1-9]|1[0-2])\/(20[2-8][0-9]|209[0-9])/;
+                cardExp.style.color = "white";
+
+                if (expRegEx.test(exp)){
+                    cardExp.style.backgroundColor = "green";
+                    return true;
+                }
+                else{
+                    cardExp.style.backgroundColor = "red";
+                    return false;
+                }
+            }
+            function totalList(){
+                let sum = sumUp();
+                document.getElementById("copy").innerHTML = "$" + sum;
+            }
+            function sumUp(){
+                document.listForm.total.value = '';
+                var sum = 0;
+                for (i=0;i<document.listForm.choice.length;i++){
+                    if (document.listForm.choice[i].checked) 
+                    {
+                        sum = sum + parseFloat(document.listForm.choice[i].value);
+                    }
+                }
+                document.listForm.total.value = sum;
+                return sum;
+            }
+            function formReset(){
+            document.getElementById("phone").style.backgroundColor = "white";
+            document.getElementById("txtEmail").style.backgroundColor = "white";
+            document.getElementById("credit-card").style.backgroundColor = "white";
+            document.getElementById("exp-date").style.backgroundColor = "white";
+            document.getElementById("first_name").style.backgroundColor = "white";
+            document.getElementById("last_name").style.backgroundColor = "white";
+            document.getElementById("street_address").style.backgroundColor = "white";
+            document.getElementById("city").style.backgroundColor = "white";
+            document.getElementById("zipcode").style.backgroundColor = "white";
+            document.getElementById("state").style.backgroundColor = "white";
+        }
+        
+        let shipArray = [];
+    
+        fetch('https://swapi.dev/api/starships/', {
+            method: 'GET',
+            mode: 'cors',
+            redirect: 'follow',
+            cache: 'no-cache'
+        })
+
+            .then(response => {
+                return response.json();
+            })
+
+            .then(starships => {
+                let ships = starships.results;
+                let nextURL = starships.next;
+                let previousURL = starships.previous;
+                const previous = document.getElementById('previous');
+                const next = document.getElementById('next');
+                let output = document.getElementById("output");
+                showShips(ships);
+
+                if (nextURL) {
+                    next.onclick = () => nextTen(nextURL);
+                }
+
+                if (previousURL) {
+                    next.onclick = () => nextTen(previousURL);
+                }
+            })
+
+        function showShips(ships) {
+            output.innerHTML = "";
+            for (let i = 0; i < ships.length; i++) {
+                let outputDiv = output.appendChild(createElement("div", ships[i].name, "starships"));
+                outputDiv.addEventListener("click", details);
+                outputDiv.setAttribute("id", ships[i].name)
+                shipArray.push(ships[i]);
+            }
+        }
+
+        function details(event) {
+            let target = event.target;
+            let id = target.getAttribute("id");
+            let model = shipArray[thisOne(id)].model;
+            let mfg = shipArray[thisOne(id)].manufacturer;
+            let output = document.getElementById(id);
+            let container = output.appendChild(createElement("div", "", "container"))
+            container.appendChild(createElement("div", "Model: " + model, "model"));
+            container.appendChild(createElement("div", "Manufacturer: " + mfg, "mfg"));
+            let button = container.appendChild(createElement("button", "X", "close"));
+            button.addEventListener("click", close);
+        }
+
+        function close() {
+            let container = document.querySelectorAll(".container")[0];
+            container.parentNode.removeChild(container);
+        }
+        function thisOne(id) {
+            //Find index of specific object using findIndex method.
+            let thisOne = shipArray.findIndex((obj => obj.name == id));
+            return thisOne;
+        }
+
+        function createElement(tag, text, className) {
+            const genElement = document.createElement(tag);
+            genElement.textContent = text;
+            genElement.classList.add(className);
+            return genElement;
+        }
+        function nextTen(url) {
+            const next = document.getElementById('next');
+            const previous = document.getElementById('previous');
+            if (url) {
+                fetch(url)
+                    .then(response => response.json())
+                    .then(nextShips => {
+                        showShips(nextShips.results);
+
+                        nextURL = nextShips.next;
+                        previousURL = nextShips.previous;
+
+                        if (nextURL) {
+                            next.onclick = () => nextTen(nextURL);
+                        }
+
+                        if (previousURL) {
+                            previous.onclick = () => nextTen(previousURL);
+                        }
+                    })
+            }
+        }
+        
+        </script>
+    </head>
+    <body>
+        <header class="header">
+            <h1 class="hh1">Who do you need eliminated</h1>
+        </header>
+        <form name="listForm" action="./assign11.php" method="GET">
+            <div class="logo-pic">
+                <img class="img1" src="logo.jpg" alt="slogo">
+            </div>
+
+            <h2>If you need a ship, we have a variety of selections.</h2>
+            <div class="third">
+                <section class="main">
+                    <div id="output"></div>
+                    <div id="bottom">
+                        <br>
+                        <br>
+                        <br>
+                        <a href="#" id="previous">&laquo; Previous</a>
+                        <a href="#" id="next">Next &raquo;</a>
+                    </div>
+                </section>
+            </div>
+            <hr>
+
+            <h2>If you think you can do the job yourself here are some weapons.</h2>
+            <div class="first">
+                <div class="bundle1">
+                    <img class="img2" src="bundle.jpg" alt="weapons">
+                    <p class="p1">
+                    Bundle 1
+                    </p>
+                    <input type="checkbox" value="1000.00" id="choice" name="i1" onchange="totalList()"/> $1000.00
+                </div>
+
+                <div class="bundle2">
+                    <img class="img3" src="sith_weapon.jpg" alt="weapons">
+                    <p class="p2">
+                        Bundle 2
+                    </p>
+                    <input type="checkbox" id="choice" name="i2" value="2000.00" onchange="totalList()"/> $2000.00
+                </div>
+                <div class="bundle3">
+                    <img class="img4" src="weapons.jpg" alt="weapons">
+                    <p class="p3">
+                        Bundle 3
+                    </p>
+                    <input type="checkbox" id="choice" name="i3" value="3000.00" onchange="totalList()"/> $3000.00
+                </div>
+            </div>
+            <hr>
+
+            <h2>They can do the job for you, if need be.</h2>
+            <br>
+            <br>
+            <div class="second">
+                <div class="hunter1">
+                    <img class="img5" src="bountyhunter.jpg" alt="bhunter">
+                    <p class="p4">
+                        Mercenary 1
+                    </p>
+                    <input type="checkbox" id="choice" name="i4" value="10000.00" onchange="totalList()"/> $10,000.00
+                </div>
+
+                <div class="sith1">
+                    <img class="img6" src="sith.jpg" alt="sith">
+                    <p class="p5">
+                        Mercenary 2
+                    </p>
+                    <input type="checkbox" id="choice" name="i5" value="20000.00" onchange="totalList()"/> $20,000.00
+                </div>
+                
+                <div class="sith2">
+                    <img class="img7" src="SithTrooper2.jpg" alt="sith">
+                    <p class="p6">
+                        Sith Empire Army
+                    </p>
+                    <input type="checkbox" id="choice" name="i6" value="900000.00" onchange="totalList()"/> $900,000.00
+                </div>
+            </div>
+        <h2>Total price below.</h2>
+        <div id="copy"></div>
+        <br>
+        <hr>
+        <div>
+            
+                <label>First Name:</label>
+                <br>
+                <input type="text" id="first_name" name="first_name" size="10" placeholder="First Name" onkeyup="validateName()" >
+                <br>
+
+                <label>Last Name:</label>
+                <br>
+                <input type="text" id="last_name" name="last_name"  size="10" placeholder="Last Name" onkeyup="validateLastName()">
+                <br>
+
+                <label>Address:</label>
+                <br>
+                <input type="text" id="street_address" name="street_address" size="10" placeholder="Street Address" onkeyup="validateAddress()">
+                <input type="text" id="city" size="10" placeholder="City" onkeyup="validateCity()">
+                <input type="text" id="state" size="10" placeholder="State" onkeyup="validateState()">
+                <input type="text" id="zipcode" size="10" placeholder="Zipcode" onkeyup="validateZip()">
+                <br>
+
+                <label>Phone:</label>
+                <br>
+                <input type="text" id="phone" name="phone" size="10" placeholder="123-456-7890" onkeyup="validatePhone()">
+                <br>
+
+                <label>Email:</label>
+                <br>
+                <input type="text" id="txtEmail" placeholder="johnDoe@email.com" onkeyup="validateEmail()">
+                <br>
+
+                <label>Credit Card Number: (No dashes)</label>
+                <br>
+                <input type="text" id="credit-card" name="credit_num" size="20" placeholder="1234 5678 9012 3456" onkeyup="validateCardNumber()">
+                <br>
+            
+        </div>
+        <br>
+        <hr>
+        <br>
+        <div>
+            
+                <h1>IMPORTANT!</h1>
+                <p class="validateExp">When the background turns <b style="color: red;">RED</b> you have entered an invalid value.<br> When back ground turns <b style="color: green;">GREEN</b> you have entered a valid value.</p> 
+                <hr>
+                <br>
+                <br>
+                <label>Credit Card Type:</label>
+                <br>
+                <input type="radio" id="visa" name="card">
+                <label for="visa">Visa</label>
+                <input type="radio" id="mastercard" name="card">
+                <label for="mastercard">MasterCard</label>
+                <input type="radio" id="american-express" name="card">
+                <label for="american-express">American Express</label>
+                <br>
+                <br>
+                
+                <label>Credit Card Expiration:</label>
+                <br>
+                <input type="text" id="exp-date" name="exp_date"
+                onkeyup="validateExp()" size="6" placeholder="01/2021">
+                <br>
+                <button type="submit">Submit</button>
+                <input type="reset" value="Reset">
+            </form>
+        </div>
+        
+    </body>
+</html>
